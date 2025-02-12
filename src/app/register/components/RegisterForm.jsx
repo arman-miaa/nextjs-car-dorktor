@@ -52,7 +52,7 @@ export default function RegisterForm() {
         Sign Up
       </button>
       <p className="text-center">Or Sign In with</p>
-      {/* <SocialLogin /> */}
+      {/* <SocialLogin ~ /> */}
       <p className="text-center">
         Don't Have an account?{" "}
         <Link href="/login" className="text-orange-500 font-bold">
