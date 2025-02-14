@@ -2,6 +2,8 @@ import { loginUser } from "@/app/actions/auth/loginUser";
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
 import { signIn } from "next-auth/react";
+import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
@@ -13,14 +15,18 @@ export const authOptions = {
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        email: { label: "email", type: "text", placeholder: "Enter Your Email" },
+        email: {
+          label: "email",
+          type: "text",
+          placeholder: "Enter Your Email",
+        },
         password: { label: "Password", type: "password" },
       },
-        async authorize(credentials, req) {
-          console.log(credentials);
+      async authorize(credentials, req) {
+        console.log(credentials);
         // Add logic here to look up the user from the credentials supplied
-            const user = await loginUser(credentials)
-            console.log('user', user);
+        const user = await loginUser(credentials);
+        console.log("user", user);
 
         if (user) {
           // Any object returned will be saved in `user` property of the JWT
@@ -33,10 +39,18 @@ export const authOptions = {
         }
       },
     }),
-    ],
-    pages: {
-        signIn: "login"
-    }
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
+  ],
+  pages: {
+    signIn: "login",
+  },
 };
 const handler = NextAuth(authOptions)
 
