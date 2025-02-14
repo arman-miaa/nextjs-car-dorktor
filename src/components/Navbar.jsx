@@ -5,9 +5,9 @@ import Link from "next/link";
 import React from "react";
 
 export default function NavBar() {
-  // const { data: session, status } = useSession();
-  // console.log(session);
-  const status = true;
+  const { data: session, status } = useSession();
+
+ 
   const navMenu = () => {
     return (
       <>
@@ -74,15 +74,15 @@ export default function NavBar() {
           <ul className="menu menu-horizontal px-1">
             {status == "authenticated" ? (
               <>
-                <li>
+                {/* <li>
                   <Image
                     src={session?.user?.image}
                     width={50}
                     height={50}
                     alt="user-logo"
                   />
-                </li>
-                <li onClick={() => signOut()}>Log Out</li>
+                </li> */}
+                <li className="btn" onClick={() => signOut()}>Log Out</li>
               </>
             ) : (
               <>
