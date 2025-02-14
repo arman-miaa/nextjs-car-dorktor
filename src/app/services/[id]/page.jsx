@@ -6,7 +6,8 @@ import React from 'react'
 export default async function ServiceDetailsPage({ params }) {
     const p = await params;
     const serviceCollection = dbConnect(collectionNamesObj.servicesCollection);
-    const data = await serviceCollection.findOne({_id: new ObjectId(p.id)})
+  const data = await serviceCollection.findOne({ _id: new ObjectId(p.id) })
+
   return (
     <div>
       <section className="flex justify-center">
