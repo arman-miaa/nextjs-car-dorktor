@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const BookingUpdateForm = ({ data }) => {
   const { data: session } = useSession();
   const router = useRouter();
-  console.log(session);
+  // console.log(session);
   console.log("FROM UPDATE FORM", data);
 
   const handleBookService = async (e) => {
@@ -40,7 +40,7 @@ const BookingUpdateForm = ({ data }) => {
 
     console.log(bookingPayload);
     const res = await fetch(
-      `https://nextjs-car-doctor-kappa.vercel.app/api/my-bookings/${data._id}`,
+      `http://localhost:3000/api/my-bookings/${data._id}`,
       {
         method: "PATCH",
         body: JSON.stringify(bookingPayload),
@@ -91,7 +91,7 @@ const BookingUpdateForm = ({ data }) => {
               </label>
               <input
                 type="text"
-                defaultValue={data?.service_price}
+                defaultValue={data?.singleBooking?.service_price}
                 readOnly
                 name="price"
                 className="input input-bordered"
@@ -102,7 +102,7 @@ const BookingUpdateForm = ({ data }) => {
                 <span className="label-text">Date</span>
               </label>
               <input
-                defaultValue={data?.date}
+                defaultValue={data?.singleBooking?.date}
                 type="date"
                 name="date"
                 className="input input-bordered"
@@ -115,7 +115,7 @@ const BookingUpdateForm = ({ data }) => {
               <input
                 type="text"
                 name="phone"
-                defaultValue={data?.phone}
+                defaultValue={data?.singleBooking?.phone}
                 placeholder="Your Phone"
                 className="input input-bordered"
               />
@@ -127,7 +127,7 @@ const BookingUpdateForm = ({ data }) => {
               <input
                 type="text"
                 name="address"
-                defaultValue={data?.address}
+                defaultValue={data?.singleBooking?.address}
                 placeholder="Your Address"
                 className="input input-bordered"
               />
