@@ -6,7 +6,8 @@ import { headers } from 'next/headers';
          const res = await fetch(
            `${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/service`,
            {
-             headers: await headers(),
+                    headers: new Headers(await headers()),
+            
            }
          );
        const d = await res.json();
