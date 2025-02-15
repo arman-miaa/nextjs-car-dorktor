@@ -3,9 +3,12 @@ import MyAllBookings from '@/components/tables/MyBookingsTable'
 import { headers } from 'next/headers';
 // import React, { useEffect, useState } from 'react'
      const fetchMyBooking = async () => {
-         const res = await fetch("http://localhost:3000/api/service", {
+         const res = await fetch(
+           `${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/service`,
+           {
              headers: await headers(),
-       });
+           }
+         );
        const d = await res.json();
          return d;
      };

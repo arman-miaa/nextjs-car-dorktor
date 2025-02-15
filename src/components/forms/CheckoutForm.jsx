@@ -36,10 +36,13 @@ const CheckoutForm = ({ data }) => {
     };
 
     console.log(bookingPayload);
-    const res = await fetch("http://localhost:3000/api/service", {
-      method: "POST",
-      body: JSON.stringify(bookingPayload),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/service`,
+      {
+        method: "POST",
+        body: JSON.stringify(bookingPayload),
+      }
+    );
     const postedResponse = await res.json();
     console.log("POSTED DATA", postedResponse);
   };

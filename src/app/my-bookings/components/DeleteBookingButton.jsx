@@ -4,9 +4,12 @@ import { MdDelete } from "react-icons/md";
 export default function DeleteBookingButton({ id }) {
   const router = useRouter();
     const handleDelete = async (id) => {
-        const res = await fetch(`http://localhost:3000/api/service/${id}`, {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/service/${id}`,
+          {
             method: "DELETE",
-        });
+          }
+        );
         const data = await res.json();
       console.log(data);
       router.refresh();

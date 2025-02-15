@@ -40,7 +40,7 @@ const BookingUpdateForm = ({ data }) => {
 
     console.log(bookingPayload);
     const res = await fetch(
-      `http://localhost:3000/api/my-bookings/${data?.singleBooking._id}`,
+      `${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/my-bookings/${data?.singleBooking._id}`,
       {
         method: "PATCH",
         body: JSON.stringify(bookingPayload),
