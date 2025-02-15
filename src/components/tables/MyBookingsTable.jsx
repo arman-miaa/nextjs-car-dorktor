@@ -1,10 +1,10 @@
 // import DeleteBookingButton from "@/app/my-bookings/components/DeleteBookingButton";
+import DeleteBookingButton from "@/app/my-bookings/components/DeleteBookingButton";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegEdit } from "react-icons/fa";
 
 const MyAllBookings = ({ data }) => {
-  console.log(data);
   return (
     <div className="my-8">
       <h1 className="text-center font-bold text-3xl my-4">My All Bookings</h1>
@@ -46,7 +46,7 @@ const MyAllBookings = ({ data }) => {
                   </td>
 
                   <td>
-                    {/* <DeleteBookingButton id={item._id} /> */}
+                    <DeleteBookingButton id={item._id} />
                   </td>
                 </tr>
               );
