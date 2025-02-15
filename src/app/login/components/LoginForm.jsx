@@ -30,9 +30,9 @@ export default function LoginForm() {
       } else {
         toast.error("FAILED to Log In");
       }
-      //console.log({ email, password });
+     
     } catch (error) {
-      console.log(error);
+     
       toast.error("FAILED to Log In");
     }
   };

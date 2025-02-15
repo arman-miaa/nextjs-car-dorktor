@@ -7,7 +7,7 @@ export default async function page({params}) {
     `${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/service/${p.id}`
   );
   const data = await res.json();
-  // console.log(data);
+
 
   return (
       <div>

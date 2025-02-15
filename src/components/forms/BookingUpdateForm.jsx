@@ -8,8 +8,8 @@ import toast from "react-hot-toast";
 const BookingUpdateForm = ({ data }) => {
   const { data: session } = useSession();
   const router = useRouter();
-  // console.log(session);
-  console.log("FROM UPDATE FORM", data);
+
+  // console.log("FROM UPDATE FORM", data);
 
   const handleBookService = async (e) => {
     toast("Submitting Booking...");
@@ -38,7 +38,7 @@ const BookingUpdateForm = ({ data }) => {
       // service_price: data.price,
     };
 
-    console.log(bookingPayload);
+  
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/my-bookings/${data?.singleBooking._id}`,
       {
@@ -47,7 +47,7 @@ const BookingUpdateForm = ({ data }) => {
       }
     );
     const postedResponse = await res.json();
-    console.log("Updated DATA response", postedResponse);
+    // console.log("Updated DATA response", postedResponse);
     router.push("/my-bookings");
   };
 

@@ -11,7 +11,7 @@ export default function DeleteBookingButton({ id }) {
           }
         );
         const data = await res.json();
-      console.log(data);
+     
       router.refresh();
     }
   return (
