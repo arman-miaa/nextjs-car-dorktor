@@ -40,7 +40,7 @@ const BookingUpdateForm = ({ data }) => {
 
     console.log(bookingPayload);
     const res = await fetch(
-      `http://localhost:3000/api/my-bookings/${data._id}`,
+      `http://localhost:3000/api/my-bookings/${data?.singleBooking._id}`,
       {
         method: "PATCH",
         body: JSON.stringify(bookingPayload),
@@ -55,7 +55,7 @@ const BookingUpdateForm = ({ data }) => {
     <div className="my-10">
       <div className="w-11/12 mx-auto">
         <h2 className="text-center text-3xl mb-4">
-          Book Service : {data?.service_name}
+          Book Service : {data?.singleBooking?.service_name}
         </h2>
         <form onSubmit={handleBookService}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
